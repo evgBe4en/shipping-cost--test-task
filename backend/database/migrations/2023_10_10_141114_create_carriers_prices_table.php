@@ -15,9 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('carrier_id');
             $table->decimal('min_weight', 8, 2);
-            $table->decimal('max_weight', 8, 2);
+            $table->decimal('max_weight', 8, 2)->nullable();
             $table->decimal('price');
-            $table->timestamps();
 
             $table->foreign('carrier_id')->references('id')->on('carriers');
         });

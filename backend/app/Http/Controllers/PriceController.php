@@ -8,7 +8,11 @@ use Illuminate\Http\Request;
 
 class PriceController extends Controller
 {
-    public function index(Request $request)
+    public function index()
+    {
+        return response()->json(Carrier::all());
+    }
+    public function showPrice(Request $request)
     {
         $carrier = Carrier::where('slug', $request->carrier_slug)->first();
 
@@ -22,6 +26,7 @@ class PriceController extends Controller
                 $request->weight
             );
         } catch (\Exception $e) {
+            return response()->json(['error' => 'Calculation failed'], 500);
         }
 
         return response()->json([

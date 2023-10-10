@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('price', [PriceController::class, 'index']);
+Route::get('price/calculate', [PriceController::class, 'showPrice']);

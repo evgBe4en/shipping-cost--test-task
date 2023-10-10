@@ -4,7 +4,7 @@ namespace App\Services;
 
 class PriceCalculator
 {
-    public function calculate($carrier, $weight)
+    public static function calculate($carrier, $weight)
     {
         $prices = $carrier->prices;
 
